@@ -6,13 +6,15 @@ const twitterWebhooks = require('twitter-webhooks');
 const app = express();
 app.use(bodyParser.json());
 
+console.log(process.env.access_token)
+
 const userActivityWebhook = twitterWebhooks.userActivity({
     serverUrl: 'https://iflameingtwitter-bot.herokuapp.com',
     route: '/', //default : '/'
-    consumerKey: process.env.consumerKey,
-    consumerSecret: process.env.consumerSecret,
-    accessToken: process.env.accessToken,
-    accessTokenSecret: process.env.accessTokenSecret,
+    consumerKey: process.env.consumer_key,
+    consumerSecret: process.env.consumer_secret,
+    accessToken: process.env.access_token,
+    accessTokenSecret: process.env.access_token_secret,
     environment: process.env.environment, //default : 'env-beta'
     app
 });
@@ -23,8 +25,8 @@ userActivityWebhook.register();
 //Subscribe for a particular user activity
 userActivityWebhook.subscribe({
     userId: process.env.USERNAME,
-    accessToken: process.env.accessToken,
-    accessTokenSecret: process.env.accessTokenSecret,
+    accessToken: process.env.access_token,
+    accessTokenSecret: process.env.access_token_secret,
 })
 .then(function (userActivity) {
     userActivity
