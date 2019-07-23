@@ -24,7 +24,7 @@ userActivityWebhook.register();
 
 //Subscribe for a particular user activity
 userActivityWebhook.subscribe({
-    userId: process.env.USERNAME,
+    userId: process.env.UserId,
     accessToken: process.env.access_token,
     accessTokenSecret: process.env.access_token_secret,
 })
