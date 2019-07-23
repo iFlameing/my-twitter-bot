@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 console.log(process.env.access_token)
 
 const userActivityWebhook = twitterWebhooks.userActivity({
-    serverUrl: 'https://iflameingtwitter-bot.herokuapp.com',
-    route: '/', //default : '/'
+    serverUrl: 'https://iflameingtwitter-bot.herokuapp.com/',
+    route: '/webhook/twitter', //default : '/'
     consumerKey: process.env.consumer_key,
     consumerSecret: process.env.consumer_secret,
     accessToken: process.env.access_token,
